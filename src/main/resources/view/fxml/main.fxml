@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="458.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.name.app.controller.MainController">
-    <Button fx:id="load" layoutX="14.0" layoutY="10.0" onMouseClicked="#onClickLoad" style="-fx-background-color: lightblue;" text="Загрузить" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="10.0">
+    <Button fx:id="load" layoutX="14.0" layoutY="10.0" onMouseClicked="#onClickLoad" style="-fx-background-color: lightblue;" text="Обновить" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="10.0">
       <cursor>
          <Cursor fx:constant="HAND" />
       </cursor></Button>

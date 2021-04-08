@@ -8,27 +8,21 @@ import org.name.model.dao.ProductDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Component
 public class MainController extends Controller {
 
-    protected final ProductDao productDao;
-    private final ProductTableController tableController;
+    private ProductDao productDao;
+    private ProductTableController tableController;
 
     @FXML
     private Button load;
-
-    private List<Product> products = new ArrayList<>();
 
     @Autowired
     public MainController(ProductTableController tableController,
                           ProductDao productDao) {
         this.tableController = tableController;
         this.productDao = productDao;
-        products = productDao.getAllProducts();
     }
 
     /**
@@ -36,13 +30,16 @@ public class MainController extends Controller {
      */
     @FXML
     public void onClickLoad() {
-        tableController.fillTable(products);
-        load.setDisable(true);
+        tableController.fillTable(productDao.getAllProducts());
     }
 
     @FXML
     public void onClickAdd() {
         NewProductModalStage newProductModalStage = new NewProductModalStage();
+        newProductModalStage.setOnHidden(close -> {
+            System.out.println("close");
+            tableController.fillTable(productDao.getAllProducts());
+        });
         newProductModalStage.show();
     }
 
@@ -52,20 +49,6 @@ public class MainController extends Controller {
                 tableController.productTable.getSelectionModel();
         Product product = model.getSelectedItem();
         productDao.deleteProduct(product);
-        products.remove(product);
-        tableController.fillTable(products);
-    }
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
-    public void refreshTable() {
-        if(products != null) {
-            tableController.fillTable(products);
-        }
+        tableController.fillTable(productDao.getAllProducts());
     }
 }

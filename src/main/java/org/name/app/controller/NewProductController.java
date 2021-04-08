@@ -17,8 +17,6 @@ import java.util.UUID;
 @Component
 public class NewProductController extends Controller {
 
-    @Autowired
-    MainController mainController;
     @FXML
     private TextField nameField;
     @FXML
@@ -35,6 +33,7 @@ public class NewProductController extends Controller {
     public void save() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
         ProductDao productDao = context.getBean(ProductDao.class);
+
         if (
                 !StringUtils.isEmpty(nameField.getText())
                         && !StringUtils.isEmpty(quantityField.getText())
@@ -51,8 +50,6 @@ public class NewProductController extends Controller {
             try {
                 product.setQuantity(Integer.parseInt(quantityField.getText()));
                 productDao.addNewProduct(product);
-                mainController.getProducts().add(product);
-                mainController.refreshTable();
                 Stage stage = (Stage) nameField.getScene().getWindow();
                 stage.close();
 

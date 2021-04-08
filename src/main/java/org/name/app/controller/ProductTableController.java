@@ -46,7 +46,11 @@ public class ProductTableController extends Controller{
      */
     public void fillTable(List<Product> products) {
         if(products != null) {
-            productTable.setItems(FXCollections.observableArrayList(products));
+            try {
+                productTable.setItems(FXCollections.observableArrayList(products));
+            } catch (Exception e) {
+                System.out.println(e.getLocalizedMessage());
+            }
         }
     }
 }
