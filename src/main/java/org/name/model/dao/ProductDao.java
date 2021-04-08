@@ -42,4 +42,8 @@ public class ProductDao {
         String sql = "DELETE FROM product WHERE id='" + product.getId() + "'";
         template.execute(sql);
     }
+    public int getLastId() {
+            return template
+                    .queryForObject("select max(id) from product", Integer.class)+1;
+    }
 }

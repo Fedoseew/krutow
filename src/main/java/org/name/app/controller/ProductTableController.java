@@ -45,6 +45,8 @@ public class ProductTableController extends Controller{
      * @param products список продуктов
      */
     public void fillTable(List<Product> products) {
-        productTable.setItems(FXCollections.observableArrayList(products));
+        if(products != null) {
+            productTable.setItems(FXCollections.observableArrayList(products));
+        }
     }
 }

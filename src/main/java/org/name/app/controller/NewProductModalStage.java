@@ -29,7 +29,6 @@ public class NewProductModalStage extends Stage {
         this.centerOnScreen();
 
         try {
-
             Scene scene = SpringStageLoader.loadScene("addNewProduct");
             this.setScene(scene);
         } catch (IOException e) {
