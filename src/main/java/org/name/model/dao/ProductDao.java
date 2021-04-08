@@ -30,4 +30,16 @@ public class ProductDao {
         String sql = "SELECT * FROM product";
         return template.query(sql, new BeanPropertyRowMapper<>(Product.class));
     }
+
+    public void addNewProduct(Product product) {
+        String sql = "INSERT INTO product (id, name, quantity, price, guid, tax)" +
+                " values (" + product.getId() + ",'" + product.getName() + "'," + product.getQuantity() + ",'"
+                + product.getPrice() + "','" + product.getGuid() + "'," + product.getTax() + ")";
+        template.execute(sql);
+    }
+
+    public void deleteProduct(Product product) {
+        String sql = "DELETE FROM product WHERE id='" + product.getId() + "'";
+        template.execute(sql);
+    }
 }

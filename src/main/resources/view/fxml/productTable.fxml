@@ -3,13 +3,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 
-<TableView fx:id="productTable" prefWidth="350.0"
-           xmlns="http://javafx.com/javafx/8.0.121"
-           xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.name.app.controller.ProductTableController">
+<TableView fx:id="productTable" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.name.app.controller.ProductTableController">
     <columns>
-        <TableColumn fx:id="id" prefWidth="30.0" text="ID"/>
-        <TableColumn fx:id="name" prefWidth="200.0" text="Наименование"/>
-        <TableColumn fx:id="quantity" prefWidth="50.0" text="Кол-во"/>
-        <TableColumn fx:id="price" prefWidth="50.0" text="Цена"/>
+        <TableColumn fx:id="id" prefWidth="30.0" text="ID" />
+        <TableColumn fx:id="name" prefWidth="250.4000358581543" text="Наименование" />
+        <TableColumn fx:id="quantity" minWidth="0.0" prefWidth="139.20001220703125" text="Кол-во" />
+        <TableColumn fx:id="price" prefWidth="128.7999267578125" text="Цена" />
     </columns>
 </TableView>

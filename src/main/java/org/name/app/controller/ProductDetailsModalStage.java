@@ -41,7 +41,7 @@ public class ProductDetailsModalStage extends Stage {
         quantity.setText(String.valueOf(product.getQuantity()));
         price.setText(product.getPrice());
         costOfAll.setText("$" + getCostOfAll(product));
-        tax.setText(String.valueOf(product.getTax()) + " %");
+        tax.setText(product.getTax() + " %");
         setTitle("Детали продукта: " + product.getName());
         show();
     }

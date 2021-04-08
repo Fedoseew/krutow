@@ -18,7 +18,7 @@ public class ProductTableController extends Controller{
     @FXML private TableColumn<String, Product> name;
     @FXML private TableColumn<Integer, Product> quantity;
     @FXML private TableColumn<String, Product> price;
-    @FXML private TableView<Product> productTable;
+    @FXML protected TableView<Product> productTable;
 
     /**
      * Устанавливаем value factory для полей таблицы

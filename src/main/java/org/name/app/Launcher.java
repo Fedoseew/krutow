@@ -11,6 +11,7 @@ import javafx.stage.StageStyle;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Launcher extends Application {
     private static ClassPathXmlApplicationContext context;
@@ -27,7 +28,7 @@ public class Launcher extends Application {
     @Override
     public void init() throws Exception {
         Platform.runLater(this::showSplash);
-        Thread.sleep(10000);
+        Thread.sleep(3000);
         context = new ClassPathXmlApplicationContext("application-context.xml");
         Platform.runLater(this::closeSplash);
     }
@@ -52,7 +53,7 @@ public class Launcher extends Application {
         try {
             splashScreen = new Stage(StageStyle.TRANSPARENT);
             splashScreen.setTitle("Splash");
-            Parent root = FXMLLoader.load(getClass().getResource("/view/fxml/splash.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/fxml/splash.fxml")));
             Scene scene = new Scene(root, Color.TRANSPARENT);
             splashScreen.setScene(scene);
             splashScreen.show();
