@@ -8,7 +8,7 @@
     <update check="background"/>
     <resources>
         <j2se version="9.0.4+" href="http://java.sun.com/products/autodl/j2se"/>
-        <jar href="SpringFXExample.jar" size="34060" download="eager"/>
+        <jar href="SpringFXExample.jar" size="39203" download="eager"/>
     </resources>
     <jfx:javafx-desc width="600" height="400" main-class="org.name.app.Launcher" name="Launcher"/>
 </jnlp>
